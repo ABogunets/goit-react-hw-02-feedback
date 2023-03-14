@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
-import {Container, Title, StatData, StatCalc} from 'components/Statistics/Statistics.styled';
-
+import {Container, StatData, Total, PositiveFeedback} from 'components/Statistics/Statistics.styled';
+import {Notification} from 'components/Notification/Notification';
 
 export const Statistics = ({good, neutral, bad, total, positivePercentage}) => {
   return (
-    <Container>
-      <Title>Statistics</Title>
-      <StatData>Good: {good}</StatData>
-      <StatData>Neutral: {neutral}</StatData>
-      <StatData>Bad: {bad}</StatData>
-      <StatCalc>Total: {total}</StatCalc>
-      <StatCalc>Positive feedback: {positivePercentage}%</StatCalc>
-    </Container>
+    total > 0 ? <Container>
+                  <StatData>Good: {good}</StatData>
+                  <StatData>Neutral: {neutral}</StatData>
+                  <StatData>Bad: {bad}</StatData>
+                  <Total>Total: {total}</Total>
+                  <PositiveFeedback>Positive feedback: {positivePercentage}%</PositiveFeedback>
+                </Container>
+              : <Notification message="There is no feedback" />
   )
 }
 

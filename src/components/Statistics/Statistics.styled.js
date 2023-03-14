@@ -1,26 +1,26 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-/* border: 1px solid black; */
-`;
+export const Container = styled.section`
 
-export const Title = styled.div`
-  text-transform: uppercase;
-  font-size: 22px;
-  margin-bottom: 20px;
 `;
 
 export const StatData = styled.p`
-  /* text-transform: uppercase; */
   font-weight: 700;
   font-size: 16px;
   margin-bottom: 10px;
 `;
 
-export const StatCalc = styled.p`
-  /* text-transform: uppercase; */
+export const Total = styled.p`
+  text-transform: uppercase;
   font-weight: 700;
   font-size: 16px;
+  margin-top: 20px;
   margin-bottom: 10px;
-  color: red;
+  color: DarkGreen;
+`;
+
+export const PositiveFeedback = styled.p`
+  font-weight: 700;
+  font-size: 16px;
+  color: DarkGreen;
 `;

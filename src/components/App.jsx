@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import {FeedbackSection} from "components/FeedbackSection/FeedbackSection"
+import {FeedbackOptions} from "components/FeedbackOptions/FeedbackOptions"
+import {StatSection} from "components/StatSection/StatSection"
 import {Statistics} from "components/Statistics/Statistics"
-import { FeedbackOptions } from "components/FeedbackOptions/FeedbackOptions"
+import { Container } from 'components/App.styled';
 
-import css from "components/App.module.css";
-
-class App extends Component {
+export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
@@ -28,25 +29,24 @@ class App extends Component {
     const options = this.state;
 
     return (
-    <div className={css.container}>
-      <h1 className={css.h2}>Please leave feedback</h1>
-
-        <FeedbackOptions
-          options={options}
-          onLeaveFeedback={this.leaveFeedback}
-        />
-        <Statistics
-          good={options.good}
-          neutral={options.neutral}
-          bad={options.bad}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage()}
-        />
-    </div>
+      <Container>
+        <FeedbackSection title="Please leave feedback">
+          <FeedbackOptions
+            options={options}
+            onLeaveFeedback={this.leaveFeedback}
+          />
+        </FeedbackSection>   
+        <StatSection title="Statistics">
+          <Statistics
+            good={options.good}
+            neutral={options.neutral}
+            bad={options.bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          />
+        </StatSection>
+      </Container>
   );
 }
 
 }
-
-
-export default App;
